@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Сравнение: СССР и Россия{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">⚖️ Сравнение: СССР и современная Россия</h1>
+<p class="lead mb-4">Как менялась студенческая жизнь по ключевым аспектам.</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Аспект</th>
+                <th scope="col">СССР</th>
+                <th scope="col">Современная Россия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <th scope="row">{{ row.aspect }}</th>
+                <td>{{ row.ussr }}</td>
+                <td>{{ row.russia }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

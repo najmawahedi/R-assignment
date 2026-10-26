@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Студенческая жизнь{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">🏫 Студенческая жизнь: тогда и сейчас</h1>
+<div class="row g-4">
+    {% for item in items %}
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.text }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

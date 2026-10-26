@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Ресурсы{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">🔗 Ресурсы для студента</h1>
+<div class="row g-4">
+    {% for r in resources %}
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ r.name }}</h5>
+                <p class="card-text">{{ r.desc }}</p>
+                <a href="{{ r.url }}" target="_blank" class="btn btn-outline-primary">Перейти →</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

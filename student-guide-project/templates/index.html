@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Главная — Студенчество: СССР и Россия{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <h1 class="display-5 fw-bold">Студенчество: СССР и современная Россия</h1>
+    <p class="lead">Интерактивный путеводитель: как учились, жили и отдыхали студенты — тогда и сейчас.</p>
+    <a href="{{ url_for('study_tips') }}" class="btn btn-primary btn-lg">Начать →</a>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">📖 Учёба</h5>
+                <p class="card-text">Методы подготовки: от рукописных конспектов до онлайн-досок.</p>
+                <a href="{{ url_for('study_tips') }}" class="btn btn-outline-primary">Открыть</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">🏫 Студенческая жизнь</h5>
+                <p class="card-text">Общежитие, комсомол и что изменилось сегодня.</p>
+                <a href="{{ url_for('campus_life') }}" class="btn btn-outline-primary">Открыть</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">🔗 Ресурсы</h5>
+                <p class="card-text">Полезные сайты для современного студента.</p>
+                <a href="{{ url_for('resources') }}" class="btn btn-outline-primary">Открыть</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <a href="{{ url_for('comparison') }}" class="btn btn-success btn-lg">⚖️ Смотреть сравнение СССР и России</a>
+</div>
+{% endblock %}
