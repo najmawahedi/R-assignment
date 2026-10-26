@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Галерея{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">📸 Галерея: Взгляд сквозь время</h1>
+<p class="lead">Сравните, как выглядела жизнь студентов тогда и сейчас.</p>
+
+{% for item in images %}
+<div class="row mb-5 align-items-center">
+    <div class="col-md-6 text-center">
+        <h5>СССР: {{ item.title }}</h5>
+        <img src="{{ url_for('static', filename='images/' + item.ussr_img) }}" class="img-fluid rounded shadow" alt="СССР">
+    </div>
+    <div class="col-md-6 text-center">
+        <h5>Россия: {{ item.title }}</h5>
+        <img src="{{ url_for('static', filename='images/' + item.russia_img) }}" class="img-fluid rounded shadow" alt="Россия">
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

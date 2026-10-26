@@ -2,15 +2,16 @@
 {% block title %}Главная — Студенчество: СССР и Россия{% endblock %}
 
 {% block content %}
-<div class="p-5 mb-4 bg-light rounded-3 text-center">
+<div class="p-5 mb-4 bg-light rounded-3 text-center shadow-sm">
     <h1 class="display-5 fw-bold">Студенчество: СССР и современная Россия</h1>
     <p class="lead">Интерактивный путеводитель: как учились, жили и отдыхали студенты — тогда и сейчас.</p>
-    <a href="{{ url_for('study_tips') }}" class="btn btn-primary btn-lg">Начать →</a>
+    <a href="{{ url_for('study_tips') }}" class="btn btn-primary btn-lg px-4">Начать →</a>
 </div>
 
+<!-- Карточки навигации -->
 <div class="row g-4">
     <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title">📖 Учёба</h5>
                 <p class="card-text">Методы подготовки: от рукописных конспектов до онлайн-досок.</p>
@@ -19,7 +20,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title">🏫 Студенческая жизнь</h5>
                 <p class="card-text">Общежитие, комсомол и что изменилось сегодня.</p>
@@ -28,17 +29,62 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title">📸 Галерея</h5>
+                <p class="card-text">Фотографии студентов: взгляд сквозь время.</p>
+                <a href="{{ url_for('gallery') }}" class="btn btn-outline-primary">Открыть</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title">⏳ Хронология</h5>
+                <p class="card-text">Ключевые события в истории студенчества от 1918 года до наших дней.</p>
+                <a href="{{ url_for('timeline') }}" class="btn btn-outline-primary">Открыть</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title">🔗 Ресурсы</h5>
-                <p class="card-text">Полезные сайты для современного студента.</p>
+                <p class="card-text">Полезные сайты и электронные библиотеки для современного студента.</p>
                 <a href="{{ url_for('resources') }}" class="btn btn-outline-primary">Открыть</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="mt-4 text-center">
-    <a href="{{ url_for('comparison') }}" class="btn btn-success btn-lg">⚖️ Смотреть сравнение СССР и России</a>
+<div class="mt-5 text-center">
+    <a href="{{ url_for('comparison') }}" class="btn btn-success btn-lg px-5 shadow">⚖️ Смотреть сравнение СССР и России</a>
 </div>
+
+<!-- ИНТЕРАКТИВНЫЙ ФАКТ (JavaScript) -->
+<hr class="my-5">
+<div class="text-center bg-light p-5 rounded-3 shadow-sm border">
+    <h3 class="mb-3">🎲 Интерактив: Факт о студентах</h3>
+    <p id="factBox" class="fs-4 fw-bold text-primary mb-4" style="min-height: 60px;">Нажмите кнопку, чтобы узнать интересный факт!</p>
+    <button class="btn btn-warning btn-lg px-5 fw-bold" onclick="showFact()">Узнать факт</button>
+</div>
+
+<script>
+    const facts = [
+        "В СССР стипендия студента вуза в 1980-х годах составляла около 40-50 рублей, а обед в столовой стоил 1-2 рубля.",
+        "В 1920-х годах советским студентам выдавали спецодежду, так как они часто работали на заводах параллельно с учебой.",
+        "Современный российский студент в среднем проверяет телефон каждые 12 минут во время учебы.",
+        "Слово 'стипендия' происходит от латинского 'stipendium' — 'жалованье', 'плата'.",
+        "В советское время существовали 'стройотряды' — студенты летом ездили строить дома, дороги и заводы, совмещая труд и отдых."
+    ];
+    
+    function showFact() {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        const factBox = document.getElementById('factBox');
+        factBox.innerText = facts[randomIndex];
+        // Небольшая анимация
+        factBox.style.opacity = 0;
+        setTimeout(() => { factBox.style.opacity = 1; }, 100);
+    }
+</script>
 {% endblock %}

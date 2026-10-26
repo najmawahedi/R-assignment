@@ -45,6 +45,22 @@ COMPARISON = [
      "russia": "Более открытый диалог, но уважение сохраняется."},
 ]
 
+# --- NEW: Данные для галереи (картинки) ---
+GALLERY = [
+    {"ussr_img": "soviet_library.jpg", "russia_img": "modern_library.jpg", "title": "Учёба и библиотека"},
+    {"ussr_img": "soviet_dorm.jpg", "russia_img": "modern_dorm.jpg", "title": "Студенческое общежитие"},
+    {"ussr_img": "soviet_leisure.jpg", "russia_img": "modern_leisure.jpg", "title": "Досуг и отдых"}
+]
+
+# --- NEW: Данные для хронологии (Таймлайн) ---
+TIMELINE = [
+    {"year": "1918", "event": "Создание первых рабфаков (рабочих факультетов) для подготовки молодежи к поступлению в вузы."},
+    {"year": "1950-е", "event": "Восстановление вузов после войны. Расцвет студенческих стройотрядов и комсомола."},
+    {"year": "1990-е", "event": "Переход к рыночной экономике. Появление платного образования и отмена обязательного распределения выпускников."},
+    {"year": "2010-е", "event": "Цифровизация образования. Массовое использование интернета, онлайн-курсов и смартфонов в учебе."}
+]
+
+
 # ---------- ROUTES ----------
 @app.route('/')
 def home():
@@ -65,6 +81,15 @@ def resources():
 @app.route('/comparison')
 def comparison():
     return render_template('comparison.html', rows=COMPARISON)
+
+# --- NEW ROUTES ---
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html', images=GALLERY)
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', events=TIMELINE)
 
 if __name__ == '__main__':
     app.run(debug=True)
