@@ -82,7 +82,7 @@ def resources():
 def comparison():
     return render_template('comparison.html', rows=COMPARISON)
 
-# --- NEW ROUTES ---
+
 @app.route('/gallery')
 def gallery():
     return render_template('gallery.html', images=GALLERY)

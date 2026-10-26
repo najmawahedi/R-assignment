@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Хронология{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">⏳ Хронология: Как менялось студенчество</h1>
+<p class="lead mb-5">Ключевые события в истории российского и советского студенчества.</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="border-start border-4 border-primary ps-4">
+            {% for event in events %}
+            <div class="mb-4">
+                <h4 class="text-primary fw-bold">{{ event.year }}</h4>
+                <p class="fs-5">{{ event.event }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
