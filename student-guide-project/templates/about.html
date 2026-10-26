@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}О проекте{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">📝 О проекте</h1>
+
+<!-- Your Name and Group -->
+<p class="fs-5 text-muted mb-4">Автор проекта: <strong>Вахеди Наджма</strong>, группа <strong>26КНТ9</strong>.</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <p class="fs-5">Этот проект был создан для изучения и сравнения жизни студентов в СССР и в современной России. Мы исследовали, как менялись методы учебы, быт в общежитиях, досуг и отношения с преподавателями.</p>
+        <p class="fs-5">Данный проект выполнен в формате интерактивного веб-сайта. Он позволяет наглядно сравнить разные аспекты студенческой жизни, изучить историческую хронологию и посмотреть архивные фотографии.</p>
+        
+        <h3 class="mt-5 mb-3">📚 Список использованных источников:</h3>
+        <ul class="list-group list-group-flush fs-5 shadow-sm rounded">
+            {% for source in sources %}
+            <li class="list-group-item bg-white">
+                <strong>{{ source.author }}</strong> — <em>{{ source.title }}</em> ({{ source.type }})
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
